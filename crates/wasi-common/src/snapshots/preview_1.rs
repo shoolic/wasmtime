@@ -1083,6 +1083,75 @@ impl<'a> wasi_snapshot_preview1::WasiSnapshotPreview1 for WasiCtx {
     fn sock_shutdown(&self, _fd: types::Fd, _how: types::Sdflags) -> Result<(), Error> {
         Err(Error::trap("sock_shutdown unsupported"))
     }
+
+    fn transport_endpoint_open(
+        &self,
+        local_endpoint_pool: types::TransportEndpointPool,
+        specifier: &wiggle::GuestPtr<'_, str>,
+    ) -> Result<types::TransportEndpoint, Error> {
+        Err(Error::trap("transports unsupported"))
+    }
+    fn transport_listen(&self, local_endpoint: types::TransportEndpoint) -> Result<(), Error> {
+        Err(Error::trap("transports unsupported"))
+    }
+    fn transport_accept(
+        &self,
+        local_endpoint: types::TransportEndpoint,
+        remote_endpoint_pool: types::TransportEndpointPool,
+    ) -> Result<types::TransportConnection, Error> {
+        Err(Error::trap("transports unsupported"))
+    }
+    fn transport_connect(
+        &self,
+        local_endpoint: types::TransportEndpoint,
+        remote_endpoint: types::TransportEndpoint,
+    ) -> Result<types::TransportConnection, Error> {
+        Err(Error::trap("transports unsupported"))
+    }
+    fn transport_send(
+        &self,
+        connection: types::TransportConnection,
+        data: &types::CiovecArray<'_>,
+    ) -> Result<types::Size, Error> {
+        Err(Error::trap("transports unsupported"))
+    }
+    fn transport_recv(
+        &self,
+        connection: types::TransportConnection,
+        data: &types::CiovecArray<'_>,
+    ) -> Result<types::Size, Error> {
+        Err(Error::trap("transports unsupported"))
+    }
+    fn transport_send_to(
+        &self,
+        local_endpoint: types::TransportEndpoint,
+        remote_endpoint: types::TransportEndpoint,
+        data: &types::CiovecArray<'_>,
+    ) -> Result<types::Size, Error> {
+        Err(Error::trap("transports unsupported"))
+    }
+    fn transport_recv_from(
+        &self,
+        local_endpoint: types::TransportEndpoint,
+        remote_endpoint_pool: types::TransportEndpointPool,
+        data: &types::CiovecArray<'_>,
+    ) -> Result<types::Size, Error> {
+        Err(Error::trap("transports unsupported"))
+    }
+    fn transport_connection_endpoint(
+        &self,
+        connection: types::TransportConnection,
+        type_: types::TransportConnectionEndpointType,
+    ) -> Result<types::TransportEndpoint, Error> {
+        Err(Error::trap("transports unsupported"))
+    }
+    fn transport_endpoint_get_specifier(
+        &self,
+        endpoint: types::TransportEndpoint,
+        specifier: &types::Ciovec<'_>,
+    ) -> Result<types::Size, Error> {
+        Err(Error::trap("transports unsupported"))
+    }
 }
 
 impl From<types::Advice> for Advice {
